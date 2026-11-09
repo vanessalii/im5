@@ -1,6 +1,7 @@
 <?php
 $menu_items = get_menu_by_slug('legals');
 $logo = get_globals_logo();
+$socials = get_globals_socials();
 
 ?>
 
@@ -8,6 +9,15 @@ $logo = get_globals_logo();
 
 <footer data-layout="footer">
     <img class="logo" src="<?= $logo['src'] ?>" alt="<?= $logo['alt'] ?>" />
+
+    <div class="socials">
+        <?php foreach ($socials as $item) : ?>
+            <a target="_blank" href="<?= $item['link'] ?>" aria-label="Link zu <?= $item['title'] ?>">
+                <img src="<?= $item['icon']['src'] ?>" alt="<?= $item['icon']['alt'] ?>">
+            </a>
+        <?php endforeach; ?>
+    </div>
+
     <nav class='nav-container'>
         <ul class='nav'> 
             <?php foreach ($menu_items as $item) : ?>

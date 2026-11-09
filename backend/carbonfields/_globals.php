@@ -6,6 +6,16 @@ use Carbon_Fields\Field;
 Container::make('theme_options', 'Globales')
     ->add_fields([
      field::make('image', 'logo', 'Logo'),
-        // todo: Globale Inhaltsfelder hier ergänzen
+
+     field::make('complex', 'socials', 'Socials')
+        ->add_fields([
+            field::make('text', 'title', 'Titel'),
+            field::make('text', 'link', 'Link'),
+            field::make('image', 'icon', 'Icon')
+        ])
+
+        ->set_header_template('<% if (title) { %><%- title %><% } %>')
+        ->set_layout('tabbed-vertical')
+
     ]);
  
