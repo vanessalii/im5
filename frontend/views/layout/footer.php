@@ -8,7 +8,7 @@ $logo = get_globals_logo();
 
 <footer data-layout="footer">
     <img class="logo" src="<?= $logo['src'] ?>" alt="<?= $logo['alt'] ?>" />
-    <nav class='nav-conatiner'>
+    <nav class='nav-container'>
         <ul class='nav'> 
             <?php foreach ($menu_items as $item) : ?>
                 <li class='nav-item'>
