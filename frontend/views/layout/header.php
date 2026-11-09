@@ -1,11 +1,13 @@
 <?php
 $menu_items = get_menu_by_slug('main');
+$logo = get_globals_logo();
+js_log($logo);
 ?>
 
 
 
 <header data-layout="header">
-    <mark>hier kommt das Logo</mark>
+    <img class="logo" src="<?= $logo['src'] ?>" alt="<?= $logo['alt'] ?>" />
     <nav class='nav-conatiner'>
         <ul class='nav'> 
             <?php foreach ($menu_items as $item) : ?>
