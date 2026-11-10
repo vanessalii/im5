@@ -1,7 +1,7 @@
 <?php
 $menu_items = get_menu_by_slug('main');
 $logo = get_globals_logo();
-js_log($logo);
+
 ?>
 
 

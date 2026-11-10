@@ -126,6 +126,22 @@
         color: var(--color-white);
     }
 }
+[data-module="overview_projects"] {
+    .projects {
+        padding: 40px 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        img {
+            width: 100%;
+            heigt: 200px;
+            object-fit: cover;
+            overflow: hidden;
+
+        }
+    }
+}
+
 
 /* Styling of all available teaser components. */
 
