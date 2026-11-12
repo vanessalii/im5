@@ -16,3 +16,8 @@ function get_globals_socials () {
     }, array: $socials);
     
 }
+
+function get_globals_copyright() {
+    $copyright = carbon_get_theme_option('copyright');
+    return $copyright;
+}

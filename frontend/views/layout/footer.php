@@ -2,6 +2,7 @@
 $menu_items = get_menu_by_slug('legals');
 $logo = get_globals_logo();
 $socials = get_globals_socials();
+$copyright = get_globals_copyright();
 
 ?>
 
@@ -9,6 +10,7 @@ $socials = get_globals_socials();
 
 <footer data-layout="footer">
     <img class="logo" src="<?= $logo['src'] ?>" alt="<?= $logo['alt'] ?>" />
+    <p class="copyright"><?= esc_html($copyright) ?></p>
 
     <div class="socials">
         <?php foreach ($socials as $item) : ?>
