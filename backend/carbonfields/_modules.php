@@ -34,6 +34,15 @@ Container::make('post_meta', 'Module')
                 ])
 
 
+            // -> about_me
+            
+            ->add_fields('about_me', 'Über mich', [
+                Field::make('text', 'title_accent', 'Titel Türkis')->set_required(),
+                Field::make('text', 'title_main', 'Titel Weiss'),
+                Field::make('textarea', 'description', 'Beschreibung'),
+                Field::make('image', 'image', 'Bild'),
+            ])
+
 
             // todo: add new modules here
             // -> SETTINGS
@@ -49,18 +58,26 @@ function render_modules (): void {
     foreach ($modules as $module) {
         // -> Modifiziere die Daten des Moduls, falls nötig, basierend auf dem Modultyp
         switch ($module['_type']) {
+            
             case 'example':
                 $module['image'] = get_media_by_id($module['image'], 'full');
                     break;
+
             case 'hero_front':
             $module['image'] = get_media_by_id($module['image']);
                     break;
+
             case 'overview_projects':
                 $module['selection'] = array_map(function($item) {
                     return (int)$item['id'];
                 }, $module['selection']);
                     break;
-
+            
+            case 'about_me':
+                $module['image'] = !empty($module['image'])
+                    ? get_media_by_id($module['image'])
+                    : null;
+                break;
 
 
                 // todo: add data modifications for modules here as a new case

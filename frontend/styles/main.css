@@ -12,6 +12,11 @@
     /* fonts */
     --font-nav: 600 16px/1.5 'Montserrat', sans-serif;
     --font-h1: 900 96px/normal 'Montserrat', sans-serif;
+    --font-h2: 900 64px/1.1 'Montserrat', sans-serif;
+    --font-subline: 400 24px/1.4 'Montserrat', sans-serif;
+    --font-body: 400 18px/1.5 'Montserrat', sans-serif;
+
+
 
 }
 
@@ -26,6 +31,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    background-image: url('../assets/images/Papier_svg.svg');
+    background-repeat: no-repeat;
+    background-position: -60px;
+    background-size: 110% auto;
 
     .logo {
     width: 80px;
@@ -141,6 +151,52 @@
     }
 }
 
+
+
+    [data-module="about_me"] {
+        background-color: #212120;
+        color: #F0EFEB;
+        padding: 120px 80px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 80px;
+
+        .image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+       
+        .title {
+            font: var(--font-h2);
+            line-height: 0.9;
+            margin-bottom: 40px;
+
+            .title-accent {
+                display: block;
+                color: #2DD4BF;
+            }
+
+            .title-main {
+                display: block;
+                color: #F0EFEB;
+            }
+        }
+
+
+        .description {
+            font: var(--font-body);
+            color: #ffffff;
+        }
+
+
+    }
+
+
 /* Styling of all available page components. */
 [data-page] {
     width: 100%;
@@ -186,16 +242,30 @@
     }
 }
 [data-module="hero_front"] {
-    background-color: var(--color-black);
+    background-color: #212120;
+    background-image: url('../assets/images/Papier_svg.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 105% auto;
+    min-height: 650px;
+
+    padding: 70px 80px 0;
+    box-sizing: border-box;
+
+    .image {
+    display: none;
+}
 
     .title {
         color: #212020;
         font: var(--font-h1);      
         letter-spacing: 0;
+        margin-bottom: 16px;
 
     }
     .subline {
-        color: var(--color-white);
+        color: #212020;
+        font: var(--font-subline);
     }
 }
 [data-module="overview_projects"] {
