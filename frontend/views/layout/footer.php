@@ -1,6 +1,6 @@
 <?php
 $menu_items = get_menu_by_slug('legals');
-$logo = get_globals_logo();
+$logo = get_globals_logo_footer();
 $socials = get_globals_socials();
 $copyright = get_globals_copyright();
 

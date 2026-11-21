@@ -4,13 +4,21 @@ $data = $args['data'];
 
 <section data-module="about_me">
 
-    <?php if (!empty($data['image']['src'])): ?>
+ 
+<?php if (!empty($data['image']['src'])): ?>
+    <div class="portrait">
         <img
             class="image"
             src="<?= esc_url($data['image']['src']) ?>"
             alt="<?= esc_attr($data['image']['alt'] ?? '') ?>"
         >
-    <?php endif; ?>
+
+        <div class="name-bar">
+            vanessa
+        </div>
+    </div>
+<?php endif; ?>
+
 
     <div class="content">
         

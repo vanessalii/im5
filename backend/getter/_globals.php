@@ -7,6 +7,14 @@ function get_globals_logo () {
     return $logo;
 }
 
+
+function get_globals_logo_footer() {
+    $logo_id = carbon_get_theme_option('logo_footer');
+    $logo = get_media_by_id($logo_id);
+    return $logo;
+}
+
+
 function get_globals_socials () {
     $socials = carbon_get_theme_option('socials');
     return array_map(function($item) {

@@ -15,13 +15,19 @@ js_log($project);
             </p>
             <p class="type">Projekt</p>
             <h1 class="title"><?= $project['title'] ?></h1>
+
+            <?php if (!empty($project['lead'])): ?>
+                <p class="lead">
+                    <?= esc_html($project['lead']) ?>
+                </p>
+            <?php endif; ?>
+
             </div>
     </section>
 
     <section class="content">
         <div class="container" data-utility="wrap-page">
             <img class="image" src="<?= $project['image'] ['src'] ?>" alt="<?= $project['image'] ['alt'] ?>">
-            <p class="lead"><?= $project['lead'] ?></p>
             <div data-utility="wysiwyg" class="text">
                 <?= wpautop($project['text']) ?>
             </div>

@@ -16,6 +16,7 @@ Container::make('post_meta', 'Module')
             //hero_front 
             ->add_fields('hero_front', 'Hero Startseite', [
                 Field::make('text', 'title', 'Titel')->set_required(),
+                Field::make('text', 'name', 'Name'), 
                 Field::make('textarea', 'subline', 'Subline'),
                 Field::make('image', 'image', 'Bild')->set_required(),
                 
@@ -23,7 +24,8 @@ Container::make('post_meta', 'Module')
 
             //->overview_projects
             ->add_fields('overview_projects', 'Übersicht Projekte', [
-                Field::make('text', 'title', 'Titel')->set_required(),
+                Field::make('text', 'title_main', 'Titel Weiss')->set_required(),
+                Field::make('text', 'title_accent', 'Titel Türkis'),
                 Field::make('association', 'selection', 'Auswahl Projekte')
                     ->set_types([
                         [
