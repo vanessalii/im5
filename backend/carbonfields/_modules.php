@@ -51,6 +51,23 @@ Container::make('post_meta', 'Module')
             ->set_layout('tabbed-vertical')
     ]);
 
+
+            // -> Module für einzelne Projekte
+            Container::make('post_meta', 'Projektmodule')
+                ->where('post_type', '=', 'project')
+                ->add_fields([
+                    Field::make('complex', 'project_modules', 'Projektmodule')
+
+                        // -> Bildergalerie
+                        ->add_fields('gallery', 'Bildergalerie', [
+                            Field::make('media_gallery', 'images', 'Bilder')
+                                ->set_type('image'),
+                        ])
+
+                        ->set_layout('tabbed-vertical')
+                ]);
+
+
 // -> Funktion, um die Module und die entsprechenden Templates auf der Seite zu laden
 function render_modules (): void {
     $modules = carbon_get_the_post_meta('modules');
@@ -90,6 +107,51 @@ function render_modules (): void {
         // -> Laden des Templates basierend auf dem Modultyp und weitergeben der Daten
         get_template_part(
             'frontend/views/modules/' . $module['_type'],
+            null,
+            [
+                'data' => $module
+            ]
+        );
+    }
+}
+
+
+function render_project_modules(): void {
+    $modules = carbon_get_the_post_meta('project_modules');
+
+    if (empty($modules)) {
+        return;
+    }
+
+    foreach ($modules as $module) {
+
+        switch ($module['_type']) {
+
+            
+        case 'gallery':
+            $images = [];
+
+            foreach ($module['images'] as $image_id) {
+                $image = get_media_by_id($image_id);
+
+                if (!empty($image['src'])) {
+                    $image['title'] = get_the_title($image_id);
+                    $image['year'] = wp_get_attachment_caption($image_id);
+
+                    $images[] = $image;
+                }
+            }
+
+            $module['images'] = $images;
+            break;
+
+
+            default:
+                continue 2;
+        }
+
+        get_template_part(
+            'frontend/views/modules/project_' . $module['_type'],
             null,
             [
                 'data' => $module

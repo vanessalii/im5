@@ -5,9 +5,13 @@
    Container::make('post_meta', 'Projekt')
        ->where('post_type', '=', 'project')
        ->add_fields([
-        Field::make('image', 'image', 'Bild')->set_required(),
+        Field::make('image', 'image', 'Bild'),
+        Field::make('checkbox', 'hide_detail_image', 'Projektbild auf Detailseite ausblenden'),
         Field::make('textarea', 'description', 'Beschreibung')->set_required()->set_help_text('Wird für den Teaser benötigt'),
         Field::make('textarea', 'lead', 'Lead')->set_required(),
-        Field::make('rich_text', 'text', 'Text')->set_required(),
+        Field::make('text', 'context', 'Entstehungsrahmen'),
+        Field::make('textarea', 'role', 'Meine Rolle'),
+        Field::make('textarea', 'special', 'Besonderes'),
+        Field::make('rich_text', 'text', 'Text'),
        
        ]);

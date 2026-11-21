@@ -3,7 +3,7 @@ $data = $args['data'];
 
 ?>
 
-<section data-module="overview_projects">
+<section id="projekte" data-module="overview_projects">
     
     <h2 class="title">
         <?php if (!empty($data['title_main'])): ?>
