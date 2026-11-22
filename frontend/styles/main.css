@@ -18,9 +18,10 @@
     --font-h3: 700 24px/1.25 'Montserrat', sans-serif;
     --font-small: 400 16px/1.5 'Montserrat', sans-serif;
 
+}
 
-
-
+html {
+    scroll-behavior: smooth;
 }
 
 /* Styling of all available layout components. */
@@ -64,7 +65,7 @@
 [data-layout="footer"] {
     padding: var(--gap-around);
     background-color: #42cdbd;
-    min-height: 850px;
+    min-height: 650px;
     box-sizing: border-box;
     position: relative;
 
@@ -77,38 +78,44 @@
         bottom: 200px;
     }
 
-    .copyright {
+        .copyright {
         position: absolute;
         left: 80px;
         bottom: 60px;
+        margin: 0;
         font-family: 'Montserrat', sans-serif;
         font-size: 16px;
         font-weight: 400;
+        line-height: 1.5;
         color: #212020;
+
     }
 
     .nav-container {
-        position: absolute;
-        right: 80px;
-        bottom: 50px;
+    position: absolute;
+    right: 80px;
+    bottom: 60px;
 
-        .nav {
-            list-style: none;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-self: center;
-            gap: 20px;
+    .nav {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
 
-            a {
-                text-decoration: none;
-                color: #212020;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-            }
+        a {
+            text-decoration: none;
+            color: #212020;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.5;
         }
     }
+}
 
     .socials {
         display: flex;
@@ -146,6 +153,10 @@
         align-items: center;
         gap: 80px;
 
+        .portrait {
+        scroll-margin-top: 120px;
+    }
+
         
         
         .image {
@@ -164,6 +175,7 @@
        
         .title {
             font: var(--font-h2);
+            font-size: 80px;
             line-height: 0.9;
             margin-bottom: 40px;
 
@@ -217,6 +229,12 @@
         }
 
 
+
+
+
+
+
+        
 
 /* Styling of all available page components. */
 [data-page] {
@@ -558,10 +576,11 @@
 [data-module="overview_projects"] {
     background-color: #212120;
     color: #ffffff;
-padding: 120px max(80px, calc(50% - 520px));
+padding: 120px max(80px, calc(50% - 520px)) 300px;
    
     & > .title {
         font: var(--font-h2);
+        font-size: 80px;
         line-height: 0.9;
         margin: 0 0 60px 0;
 
@@ -893,6 +912,58 @@ padding: 120px max(80px, calc(50% - 520px));
 
                 &:last-child {
                     margin-bottom: 0;
+                }
+            }
+        }
+
+
+        
+        [data-module="legal"] {
+            width: 100%;
+            min-height: 75vh;
+            background-color: var(--color-black);
+            padding: 120px 32px 140px;
+            box-sizing: border-box;
+
+            .container {
+                width: 100%;
+                max-width: 1040px;
+                margin: 0 auto;
+            }
+
+            .legal-title {
+                font: var(--font-h2);
+                color: var(--color-white);
+                margin-bottom: 64px;
+            }
+
+            .legal-content {
+                max-width: 760px;
+                font: var(--font-body);
+                color: var(--color-white);
+
+                h2 {
+                    font: var(--font-h3);
+                    margin: 40px 0 16px;
+                }
+
+                h3 {
+                    font: var(--font-h3);
+                    margin: 32px 0 12px;
+                }
+
+                p {
+                    margin-bottom: 20px;
+                }
+
+                a {
+                    color: var(--color-accent);
+                    text-decoration: underline;
+                }
+
+                ul, ol {
+                    margin-bottom: 20px;
+                    padding-left: 24px;
                 }
             }
         }

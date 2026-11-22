@@ -45,6 +45,10 @@ Container::make('post_meta', 'Module')
                 Field::make('image', 'image', 'Bild'),
             ])
 
+            // -> Rechtlicher Text
+            ->add_fields('legal', 'Rechtlicher Text', [
+                Field::make('rich_text', 'legal_content', 'Text'),
+            ])
 
             // todo: add new modules here
             // -> SETTINGS
@@ -74,6 +78,8 @@ Container::make('post_meta', 'Module')
 
                         ->set_layout('tabbed-vertical')
                 ]);
+
+                
 
 
 
