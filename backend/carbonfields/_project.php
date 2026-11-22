@@ -9,7 +9,7 @@
         Field::make('checkbox', 'hide_detail_image', 'Projektbild auf Detailseite ausblenden'),
         Field::make('textarea', 'description', 'Beschreibung')->set_required()->set_help_text('Wird für den Teaser benötigt'),
         Field::make('textarea', 'lead', 'Lead')->set_required(),
-        Field::make('text', 'context', 'Entstehungsrahmen'),
+        Field::make('text', 'context', 'Entstehungsrahmen')->set_required(),
         Field::make('textarea', 'role', 'Meine Rolle'),
         Field::make('textarea', 'special', 'Besonderes'),
         Field::make('rich_text', 'text', 'Text'),

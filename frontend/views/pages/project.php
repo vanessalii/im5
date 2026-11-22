@@ -14,13 +14,15 @@ js_log($project);
                 <?php endforeach; ?>
             </p>
             
+            <h1 class="title"><?= $project['title'] ?></h1>
+
             <?php if (!empty($project['context'])): ?>
                 <p class="type">
                     <?= esc_html($project['context']) ?>
                 </p>
             <?php endif; ?>
 
-            <h1 class="title"><?= $project['title'] ?></h1>
+            
 
             <?php if (!empty($project['lead'])): ?>
                 <p class="lead">

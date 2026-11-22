@@ -52,6 +52,8 @@ Container::make('post_meta', 'Module')
     ]);
 
 
+           
+
             // -> Module für einzelne Projekte
             Container::make('post_meta', 'Projektmodule')
                 ->where('post_type', '=', 'project')
@@ -64,8 +66,16 @@ Container::make('post_meta', 'Module')
                                 ->set_type('image'),
                         ])
 
+                        // -> Bilder untereinander
+                        ->add_fields('image_stack', 'Bilder untereinander', [
+                            Field::make('media_gallery', 'images', 'Bilder')
+                                ->set_type('image'),
+                        ])
+
                         ->set_layout('tabbed-vertical')
                 ]);
+
+
 
 
 // -> Funktion, um die Module und die entsprechenden Templates auf der Seite zu laden
@@ -144,6 +154,21 @@ function render_project_modules(): void {
 
             $module['images'] = $images;
             break;
+
+                        // -> Bilder untereinander
+            case 'image_stack':
+                $images = [];
+
+                foreach ($module['images'] as $image_id) {
+                    $image = get_media_by_id($image_id, 'full');
+
+                    if (!empty($image['src'])) {
+                        $images[] = $image;
+                    }
+                }
+
+                $module['images'] = $images;
+                break;
 
 
             default:

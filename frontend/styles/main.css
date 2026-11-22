@@ -280,7 +280,7 @@
 
     & > .hero .type {
         font: var(--font-small);
-        color: #ffffff;
+        color: #c0bfbc;
         margin: 0 0 16px;
     }
 
@@ -355,7 +355,7 @@
 
             width: 100%;
             max-width: 1040px;
-            margin: 100px auto 0;
+            margin: 200px auto 0;
         }
 
 
@@ -873,6 +873,30 @@ padding: 120px max(80px, calc(50% - 520px));
         }
 
     }
+
+    
+    
+        [data-module="project_image_stack"] {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+
+            .storyboard-page {
+                width: 100%;
+                margin-bottom: 48px;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
 
 
 
