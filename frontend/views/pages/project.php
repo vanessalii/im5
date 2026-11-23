@@ -86,8 +86,6 @@ js_log($project);
             <div class="project-special">
                 <h2 class="special-title">Besonderes.</h2>
 
-                <?php render_project_modules(); ?>
-
                 <div class="special-text">
                     <?= wpautop(esc_html($project['special'])) ?>
                 </div>
