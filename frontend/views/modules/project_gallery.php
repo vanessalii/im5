@@ -96,6 +96,44 @@ if (empty($data['images'])) {
         showImage(currentIndex - 1);
     });
 
+
+/* Wischgesten für die Lightbox */
+const swipeArea = dialog.querySelector('.lightbox-image-wrap');
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+swipeArea.addEventListener('touchstart', (event) => {
+    if (event.touches.length !== 1) return;
+
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+}, { passive: true });
+
+swipeArea.addEventListener('touchend', (event) => {
+    const touch = event.changedTouches[0];
+    if (!touch) return;
+
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+
+    // Nur horizontale Wischbewegungen erkennen
+    if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+        return;
+    }
+
+    // Nach links: nächstes Bild
+    if (deltaX < 0) {
+        showImage(currentIndex + 1);
+    }
+
+    // Nach rechts: vorheriges Bild
+    else {
+        showImage(currentIndex - 1);
+    }
+}, { passive: true });
+
+
     dialog.querySelector('.lightbox-next').addEventListener('click', () => {
         showImage(currentIndex + 1);
     });
