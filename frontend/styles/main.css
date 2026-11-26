@@ -890,6 +890,7 @@ html {
     background-color: var(--color-black);
     padding: 120px 32px 140px;
     box-sizing: border-box;
+    
 
     .container {
         width: 100%;
@@ -907,6 +908,7 @@ html {
         max-width: 760px;
         font: var(--font-body);
         color: var(--color-white);
+        white-space: pre-line;
 
         h2 {
             font: var(--font-h3);
